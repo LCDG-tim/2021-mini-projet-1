@@ -70,6 +70,14 @@ def roulette_100() -> None:
     print("Gagné en " + str(i) + (" coups", " coup")[i == 1])
 
 
+def sapin_de_noel(n: int) -> None:
+    j = 1
+    for i in range(1, n + 1):
+        print("".join(["^"] * j).center(2 * n))
+        j += 2
+
+
 if __name__ == "__main__":
     print(vol_col_droit(3, 3))
-    roulette_100()
+    # roulette_100()
+    sapin_de_noel(12)

@@ -6,11 +6,14 @@
 """mini projet 1 de 2020 - 2021"""
 
 
+import re
+
+
 import math as m
 import random as rdm
 
 
-def ask_number(text: str) -> float:
+def ask_number(text: str = "") -> float:
     assert isinstance(text, str), \
         "text not str but {}".format(type(text))
 
@@ -77,7 +80,50 @@ def sapin_de_noel(n: int) -> None:
         j += 2
 
 
+def merci_la_france() -> None:
+    rep = ask_number("prix (0 pour arrêter) = ")
+    while rep != 0:
+        print(rep * 1.20)
+        rep = ask_number("prix (0 pour arrêter) = ")
+
+
+def amende(victimes: str) -> None:
+
+    def prix(victimes) -> int:
+        victimes_l = [int(i) for i in victimes.split(" ")]
+        print(victimes_l)
+        prix = [1, 3, 5, 10]
+        nb_point = 0
+        for i in range(len(victimes_l)):
+            nb_point += victimes_l[i] * prix[i]
+        return m.ceil(nb_point / 100) * 200
+
+    victs = input("victimes = ")
+    while not re.findall(r"^\d+ \d+ \d+ \d+$", victs):
+        victs = input("victimes = ")
+    print(amende(victs))
+
+
+def haruri() -> None:
+    ha_weight = ask_number()
+    ha_food_weight = ask_number()
+    ha_ratio = ha_food_weight / ha_weight
+    number_animals = ask_number()
+    return_val = 0
+    for i in range(number_animals):
+        stat_animal = input()
+        while not re.findall(r"^\d+ \d+$", stat_animal):
+            stat_animal = input()
+        animal_weight, animal_food_weight = stat_animal.split(" ")
+        animal_ratio = animal_food_weight / animal_weight
+        if animal_ratio > ha_ratio:
+            return_val += 1
+    print(return_val)
+
+
 if __name__ == "__main__":
-    print(vol_col_droit(3, 3))
+    # print(vol_col_droit(3, 3))
     # roulette_100()
-    sapin_de_noel(12)
+    # sapin_de_noel(12)
+    # haruri()
+    pass

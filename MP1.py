@@ -121,6 +121,9 @@ def haruri() -> None:
     print(return_val)
 
 
+def analyse_adn(adn: str, sequeance: str) -> str:
+    pass
+
 if __name__ == "__main__":
     # print(vol_col_droit(3, 3))
     # roulette_100()

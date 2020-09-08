@@ -121,12 +121,28 @@ def haruri() -> None:
     print(return_val)
 
 
-def analyse_adn(adn: str, sequeance: str) -> str:
-    pass
+def analyse_adn() -> None:
+
+    def nb_seq(adn: str, sequeance: str) -> int:
+        nmb_seq = len(re.findall(sequeance, adn))
+        return nmb_seq
+
+    adn_in = input("chaine : ")
+    seq = input("seq : ")
+
+    print(
+                "Il y a {} % de {} dans votre chaine"
+                .format(
+                        round(nb_seq(adn_in, seq) / len(adn_in) * 100, 2),
+                        repr(seq)
+                    )
+            )
+
 
 if __name__ == "__main__":
     # print(vol_col_droit(3, 3))
     # roulette_100()
     # sapin_de_noel(12)
     # haruri()
+    analyse_adn()
     pass

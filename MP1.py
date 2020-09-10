@@ -108,14 +108,14 @@ def haruri() -> None:
     ha_weight = ask_number()
     ha_food_weight = ask_number()
     ha_ratio = ha_food_weight / ha_weight
-    number_animals = ask_number()
+    number_animals = int(ask_number())
     return_val = 0
     for i in range(number_animals):
         stat_animal = input()
         while not re.findall(r"^\d+ \d+$", stat_animal):
             stat_animal = input()
         animal_weight, animal_food_weight = stat_animal.split(" ")
-        animal_ratio = animal_food_weight / animal_weight
+        animal_ratio = int(animal_food_weight) / int(animal_weight)
         if animal_ratio > ha_ratio:
             return_val += 1
     print(return_val)
